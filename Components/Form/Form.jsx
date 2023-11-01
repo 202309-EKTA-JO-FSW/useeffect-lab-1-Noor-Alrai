@@ -1,12 +1,15 @@
-import { useState } from "react";
+import React , { useState } from "react";
 
 
 export default function Form({ setNumberOfDogs }) {
   // How can we manage the number of dogs?
 
   const [inputText, setInputText] = useState("");
+
+  
   return (
     <form>
+
       <h3>Number of cute dogs is infinite!</h3>
       <div className="mb-3">
         <label>Insert number of cute dogs</label>
@@ -24,6 +27,9 @@ export default function Form({ setNumberOfDogs }) {
           onClick={(e) => {
             e.preventDefault();
             // When we click on the WOOF! button, what happens?
+            console.log(inputText)
+            if (inputText !== "" && !isNaN(inputText)) {
+              setNumberOfDogs(parseInt(inputText)); }
           }}
           type="submit"
           className="btn btn-primary"
